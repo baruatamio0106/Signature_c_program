@@ -1,0 +1,85 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct person
+{
+    char name[20];
+    int age;
+    char email[20];
+    int mobile_no;
+
+};
+
+char check_user_or_admin(void);
+int admin_screen(void);
+int user_screen(void);
+void main_screen(void); //Main screen logic
+int main(void)
+{
+    main_screen();
+    return 0;
+}
+// Main screen logic code
+void main_screen(void)
+{
+    char first_input;
+    int admin_selection,user_selection;
+    first_input = check_user_or_admin();
+    if(first_input == 'a' || first_input == 'A')
+        admin_selection = admin_screen();
+    else if(first_input == 'u' || first_input == 'U')
+        user_selection = user_screen();
+    else
+    {
+        printf("\n\t\t\tINVAILD INPUT\n\n");
+        printf("\t\t\t");
+        system("pause");
+        main_screen();
+    }
+}
+char  check_user_or_admin(void)
+{
+    system("cls");
+    printf("\t\t\tCUSTOMER ACCOUNT BANKING MANAGEMENT SYSTEM\n\n");
+    printf("\t\t\t     ====WELLCOME TO MAIN MENU=====\n\n");
+    printf("\t\t\t ==>> Press 'U' or 'u' for USER\n");
+    printf("\t\t\t ==>> Press 'A' or 'a' for ADIMIN\n");
+    char user_input;
+    printf("\n\t\t\t Press here: ");
+    user_input = getchar();
+    getchar();
+    return user_input;
+}
+int user_screen(void)
+{
+    system("cls");
+    printf("\t\t\tCUSTOMER ACCOUNT BANKING MANAGEMENT SYSTEM\n\n");
+    printf("\t\t\t     ====WELLCOME TO MAIN MENU=====\n\n");
+    printf("\t\t1. Create new account\n");
+    printf("\t\t2. Update information of existing account\n");
+    printf("\t\t3. Transactions\n");
+    printf("\t\t4. Balance check\n");
+    printf("\t\t5. Exit to main menu\n");
+
+    int user_input;
+    printf("\n\n\t\t Enter your choice: ");
+    scanf("%d",&user_input);
+
+    return user_input;
+}
+int admin_screen(void)
+{
+    system("cls");
+    printf("\t\t\tCUSTOMER ACCOUNT BANKING MANAGEMENT SYSTEM\n\n");
+    printf("\t\t\t     ====WELLCOME TO MAIN MENU=====\n\n");
+    printf("\t\t1. check details for existing account\n");
+    printf("\t\t2. Removing existing account\n");
+    printf("\t\t3. View customer's list\n");
+    printf("\t\t4. Exit to main menu\n");
+    int admin_input;
+    printf("\n\n\t\t Enter your choice: ");
+    scanf("%d",&admin_input);
+
+    return admin_input;
+}
+
+
